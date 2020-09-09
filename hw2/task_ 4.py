@@ -37,12 +37,14 @@ print(f'{only_b1_white*100:.2f}%')
 only_b2_white = all_white_b2 * none_white_b1
 print(f'{only_b2_white*100:.2f}%')
 
-# По одному белому из каждой = 3.82%
+# По одному белому из каждой = 15.27%
 one_white_b1 = (b1_white / balls_1) * (balls_1 - b1_white) / (balls_1 - 1)
+one_white_b1 += (balls_1 - b1_white) / balls_1 * b1_white / (balls_1 - 1)
 one_white_b2 = (b2_white / balls_2) * (balls_2 - b2_white) / (balls_2 - 1)
+one_white_b2 += (balls_2 - b2_white) / balls_2 * b2_white / (balls_2 - 1)
 one_white_of_each = one_white_b1 * one_white_b2
 print(f'{one_white_of_each*100:.2f}%')
 
-# Вероятность того, что ровно два мяча белые = 9.03%
+# Вероятность того, что ровно два мяча белые = 20.48%
 two_white = only_b1_white + only_b2_white + one_white_of_each
 print(f'{two_white*100:.2f}%')
